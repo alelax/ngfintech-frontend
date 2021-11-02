@@ -1,23 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { NgForm } from "@angular/forms"
+import { ThemePalette } from "@angular/material/core"
 
 @Component({
   selector: 'app-root',
   template: `
+    <div [ngClass]="checked ? 'darkMode' : ''">
 
-    <app-login></app-login>
+      <mat-slide-toggle
+        [color]="color"
+        [(ngModel)]="checked"
+        (toggleChange)="toggleTheme()">
+        <mat-icon>{{ checked ? 'dark_mode' : 'wb_sunny' }}</mat-icon>
+      </mat-slide-toggle>
 
-    <router-outlet></router-outlet>
+      <app-login></app-login>
+
+      <router-outlet></router-outlet>
+
+    </div>
+
   `,
-  styles: []
+  styles: [`
+    mat-slide-toggle {
+      margin: 10px;
+    }
+  `]
 })
 export class AppComponent {
+
+  color: ThemePalette = 'primary';
+  checked: boolean | null = null;
+
   title = 'fintech-frontend';
 
+  constructor() {
+    this.themeSetup()
+  }
 
+  toggleTheme() {
+    this.checked = !this.checked
+    localStorage.setItem('theme', this.checked ? 'dark' : 'light')
+  }
 
-
-  fillForm2(f: NgForm) {
-    f.setValue({ email: 'asd@asd.com', password: 'asdasdzz1'})
+  private themeSetup() {
+    this.checked = !!(localStorage.getItem('theme') && localStorage.getItem('theme') === 'dark')
   }
 }
