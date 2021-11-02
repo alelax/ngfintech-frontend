@@ -1,34 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { NgForm } from "@angular/forms"
 
 @Component({
   selector: 'app-register',
   template: `
 
-      <form #f2="ngForm" (ngSubmit)="save(f2)">
-        <button type="button" (click)="fillForm(f2)">fill form 2</button>
+      <form #f="ngForm" (ngSubmit)="save(f)">
 
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            [ngModel]
-            #emailRef="ngModel"
-            name="email"
-            type="email"
-            matInput
-            placeholder="Email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
-            required>
-          <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.required">
-            Campo obbligatorio
-          </mat-error>
-          <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.pattern">
-            Indirizzo email non valido
-          </mat-error>
+        <button type="button" (click)="fillForm(f)">fill form</button>
 
-        </mat-form-field>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              [ngModel]
+              #emailRef="ngModel"
+              name="email"
+              type="email"
+              matInput
+              placeholder="Email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+              required>
+            <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.required">
+              Campo obbligatorio
+            </mat-error>
+            <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.pattern">
+              Indirizzo email non valido
+            </mat-error>
 
-        <mat-form-field appearance="outline">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field appearance="outline">
           <mat-label>Nome</mat-label>
           <input
             [ngModel]
@@ -43,8 +47,10 @@ import { NgForm } from "@angular/forms"
           </mat-error>
 
         </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="outline">
+        <div>
+          <mat-form-field appearance="outline">
           <mat-label>Cognome</mat-label>
           <input
             [ngModel]
@@ -59,8 +65,10 @@ import { NgForm } from "@angular/forms"
           </mat-error>
 
         </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="outline">
+        <div>
+          <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
           <input
             [ngModel]
@@ -81,8 +89,10 @@ import { NgForm } from "@angular/forms"
           </mat-error>
 
         </mat-form-field>
+        </div>
 
-        <mat-form-field appearance="outline">
+        <div>
+          <mat-form-field appearance="outline">
           <mat-label>Conferma password</mat-label>
           <input
             [ngModel]
@@ -103,30 +113,30 @@ import { NgForm } from "@angular/forms"
           </mat-error>
 
         </mat-form-field>
+        </div>
 
         <button
           mat-raised-button
+          class="submit-btn"
           color="primary"
           type="submit"
-          [disabled]="f2.invalid"
+          [disabled]="f.invalid"
         >
           Registrati
         </button>
 
-        <a href="https://www.google.com/" target="_blank">Hai già un account? Accedi</a>
       </form>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class RegisterComponent implements OnInit {
+
 
   showPwToggle: boolean = false
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   save(f: NgForm) {
     if (f.value.password === f.value.passwordConfirm) console.log('form value: ', f.value)

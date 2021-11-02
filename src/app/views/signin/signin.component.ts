@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { NgForm } from "@angular/forms"
 
 @Component({
@@ -6,65 +6,72 @@ import { NgForm } from "@angular/forms"
   template: `
       <form #f="ngForm" (ngSubmit)="save(f)">
         <button type="button" (click)="fillForm(f)">fill form</button>
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            [ngModel]
-            #emailRef="ngModel"
-            name="email"
-            type="email"
-            matInput
-            placeholder="Email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
-            required>
-          <mat-icon matPrefix>person</mat-icon>
 
-          <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.required">
-            Campo obbligatorio
-          </mat-error>
-          <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.pattern">
-            Indirizzo email non valido
-          </mat-error>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input
+              [ngModel]
+              #emailRef="ngModel"
+              name="email"
+              type="email"
+              matInput
+              placeholder="Email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+              required>
+            <mat-icon matPrefix>person</mat-icon>
 
-        </mat-form-field>
+            <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.required">
+              Campo obbligatorio
+            </mat-error>
+            <mat-error *ngIf="(emailRef.dirty || emailRef.touched) && emailRef.errors?.pattern">
+              Indirizzo email non valido
+            </mat-error>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input
-            [ngModel]
-            #pwRef="ngModel"
-            name="password"
-            [type]="showPwToggle ? 'text' : 'password'"
-            matInput
-            placeholder="Password"
-            pattern="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
-            required>
-          <mat-icon matPrefix>lock</mat-icon>
-          <mat-icon (click)="showPwToggle = !showPwToggle"
-                    matSuffix>{{ showPwToggle ? 'visibility' : 'visibility_off' }}</mat-icon>
-          <mat-error *ngIf="(pwRef.dirty || pwRef.touched) && pwRef.errors?.required">
-            Campo obbligatorio
-          </mat-error>
-          <mat-error *ngIf="(pwRef.dirty || pwRef.touched) && pwRef.errors?.pattern">
-            La password deve contenere almeno 8 caratteri, con almeno un numero e una lettera
-          </mat-error>
+          </mat-form-field>
+        </div>
 
-        </mat-form-field>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input
+              [ngModel]
+              #pwRef="ngModel"
+              name="password"
+              [type]="showPwToggle ? 'text' : 'password'"
+              matInput
+              placeholder="Password"
+              pattern="^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+              required>
+            <mat-icon matPrefix>lock</mat-icon>
+            <mat-icon (click)="showPwToggle = !showPwToggle"
+                      matSuffix>{{ showPwToggle ? 'visibility' : 'visibility_off' }}</mat-icon>
+            <mat-error *ngIf="(pwRef.dirty || pwRef.touched) && pwRef.errors?.required">
+              Campo obbligatorio
+            </mat-error>
+            <mat-error *ngIf="(pwRef.dirty || pwRef.touched) && pwRef.errors?.pattern">
+              La password deve contenere almeno 8 caratteri, con almeno un numero e una lettera
+            </mat-error>
 
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="f.invalid"
-        >
-          Login
-        </button>
+          </mat-form-field>
+        </div>
 
-        <a href="https://www.google.com/" target="_blank">Crea un nuovo account</a>
+        <div>
+          <button
+            mat-raised-button
+            class="submit-btn"
+            color="primary"
+            type="submit"
+            [disabled]="f.invalid"
+          >
+            Login
+          </button>
+        </div>
+
+
       </form>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class SigninComponent implements OnInit {
 

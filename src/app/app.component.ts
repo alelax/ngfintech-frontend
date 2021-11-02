@@ -5,14 +5,7 @@ import { NgForm } from "@angular/forms"
   selector: 'app-root',
   template: `
 
-
-    <app-login>
-      <app-signin></app-signin>
-    </app-login>
-
-    <app-login>
-      <app-register></app-register>
-    </app-login>
+    <app-login></app-login>
 
     <router-outlet></router-outlet>
   `,
