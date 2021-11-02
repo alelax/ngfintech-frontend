@@ -79,8 +79,8 @@ export class SigninComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
+
   save(f: NgForm) {
     console.log('form value: ', f.value)
   }
@@ -88,4 +88,5 @@ export class SigninComponent implements OnInit {
   fillForm(f: NgForm) {
     f.setValue({ email: 'asd@asd.com', password: 'asdasdzz1'})
   }
+
 }

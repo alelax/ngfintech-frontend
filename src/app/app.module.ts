@@ -6,16 +6,22 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./shared/material/material.module"
 import { FormsModule } from "@angular/forms";
+
+// COMPONENTS
 import { SigninComponent } from './views/signin/signin.component';
 import { RegisterComponent } from './views/register/register.component';
-import { LoginComponent } from './views/login/login.component'
+import { LoginComponent } from './views/login/login.component';
+import { CardListComponent } from './views/card-list/card-list.component'
 
 @NgModule({
   declarations: [
     AppComponent,
+
+    // BASE COMPONENTS
     SigninComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CardListComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@ import { ThemePalette } from "@angular/material/core"
         <mat-icon>{{ checked ? 'dark_mode' : 'wb_sunny' }}</mat-icon>
       </mat-slide-toggle>
 
-      <app-login></app-login>
+      <app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>
 
       <router-outlet></router-outlet>
 
@@ -43,7 +43,19 @@ export class AppComponent {
     localStorage.setItem('theme', this.checked ? 'dark' : 'light')
   }
 
-  private themeSetup() {
+  themeSetup() {
     this.checked = !!(localStorage.getItem('theme') && localStorage.getItem('theme') === 'dark')
+  }
+
+  showMovements(cardId: string) {
+    console.log('show movements: ', cardId)
+  }
+
+  removeCard(cardId: string) {
+    console.log('remove card: ', cardId)
+  }
+
+  addCard() {
+    console.log('add card')
   }
 }
