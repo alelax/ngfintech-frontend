@@ -4,7 +4,6 @@ import { NgForm } from "@angular/forms"
 @Component({
   selector: 'app-register',
   template: `
-
       <form #f="ngForm" (ngSubmit)="save(f)">
 
         <button type="button" (click)="fillForm(f)">fill form</button>
@@ -129,14 +128,11 @@ import { NgForm } from "@angular/forms"
   `,
   styles: []
 })
-export class RegisterComponent implements OnInit {
-
+export class RegisterComponent {
 
   showPwToggle: boolean = false
 
   constructor() { }
-
-  ngOnInit(): void {}
 
   save(f: NgForm) {
     if (f.value.password === f.value.passwordConfirm) console.log('form value: ', f.value)

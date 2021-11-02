@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { NgForm } from "@angular/forms"
 import { ThemePalette } from "@angular/material/core"
+import { CardFormComponent } from "./views/card-form/card-form.component"
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,19 @@ import { ThemePalette } from "@angular/material/core"
 
       <app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>
 
-      <router-outlet></router-outlet>
+      <app-card-form #formRef></app-card-form>
 
+      <button
+        mat-raised-button
+        class="submit-btn"
+        color="primary"
+        type="button"
+        (click)="cleanup()"
+      >
+        Reset
+      </button>
+
+      <router-outlet></router-outlet>
     </div>
 
   `,
@@ -27,7 +39,9 @@ import { ThemePalette } from "@angular/material/core"
     }
   `]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+
+  @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
 
   color: ThemePalette = 'primary';
   checked: boolean | null = null;
@@ -57,5 +71,14 @@ export class AppComponent {
 
   addCard() {
     console.log('add card')
+  }
+
+  ngAfterViewInit() {
+    console.log('form NG AFTER: ', this.element)
+  }
+
+  cleanup() {
+    console.log('form: ', this.element)
+    this.element.form.reset()
   }
 }
