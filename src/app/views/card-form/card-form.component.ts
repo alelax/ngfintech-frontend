@@ -1,5 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core'
 import { NgForm } from "@angular/forms"
+import { Card } from "../../models/Card"
 
 interface CardType {
   value: 'visa' | 'mastercard',
@@ -11,7 +12,7 @@ interface CardType {
   template: `
     <mat-card>
       <mat-card-content>
-        <form #f="ngForm" (ngSubmit)="save(f)">
+        <form #f="ngForm" (ngSubmit)="save(f, $event)">
 
           <button type="button" (click)="fillForm(f)">fill form</button>
 
@@ -26,7 +27,6 @@ interface CardType {
               </mat-select>
               <mat-error *ngIf="cardTypeRef.errors?.required">Campo obbligatorio</mat-error>
             </mat-form-field>
-
           </div>
 
           <div class="row-input">
@@ -122,7 +122,7 @@ interface CardType {
             type="submit"
             [disabled]="f.invalid"
           >
-            Registrati
+            Aggiungi carta
           </button>
 
           <button
@@ -130,41 +130,58 @@ interface CardType {
             class="submit-btn"
             color="accent"
             type="button"
-            (click)="cleanup()"
+            (click)="cancel.emit()"
           >
-            Reset
+            Annulla
           </button>
-
 
         </form>
       </mat-card-content>
     </mat-card>
   `,
   styles: [`
-    div.row-input {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
 
-      mat-form-field {
-        width: 49.5%;
+    mat-card {
+      height: fit-content;
+      overflow-y: hidden;
+
+      div.row-input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        mat-form-field {
+          width: 49.5%;
+        }
       }
     }
+
   `]
 })
 export class CardFormComponent {
 
   @ViewChild('f', { read: NgForm }) form!: NgForm;
 
+  @Output() saveData = new EventEmitter<Card>()
+  @Output() cancel = new EventEmitter<void>()
+
   cardTypes: CardType[] = [
     { value: 'visa', label: 'Visa' },
     { value: 'mastercard', label: 'Mastercard' }
   ]
 
-  constructor() { }
+  save(f: NgForm, e: MouseEvent) {
+    e.preventDefault()
 
-  save(f: NgForm) {
-    console.log('form data: ', f.value)
+    const newCard: Card = {
+      _id: "7b5e401c-a781-49cc-907b-7f253b1dbf88",
+      number: f.value.cardNumber,
+      ownerId: "al45er5e6fba",
+      owner: `${f.value.name} ${f.value.lastname}`,
+      type: f.value.cardType,
+      amount: 3000
+    }
+    this.saveData.emit(newCard)
   }
 
   fillForm(f: NgForm) {
@@ -177,8 +194,8 @@ export class CardFormComponent {
     })
   }
 
-  cleanup() {
+  /*cleanup() {
     this.form.reset()
-  }
+  }*/
 
 }

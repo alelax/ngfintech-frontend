@@ -15,11 +15,12 @@ import { CardFormComponent } from "./views/card-form/card-form.component"
         <mat-icon>{{ checked ? 'dark_mode' : 'wb_sunny' }}</mat-icon>
       </mat-slide-toggle>
 
-      <app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>
+      <!--<app-cards></app-cards>-->
+      <!--<app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>-->
 
-      <app-card-form #formRef></app-card-form>
+      <!--<app-card-form #formRef></app-card-form>-->
 
-      <button
+      <!--<button
         mat-raised-button
         class="submit-btn"
         color="primary"
@@ -27,7 +28,7 @@ import { CardFormComponent } from "./views/card-form/card-form.component"
         (click)="cleanup()"
       >
         Reset
-      </button>
+      </button>-->
 
       <router-outlet></router-outlet>
     </div>
@@ -39,9 +40,9 @@ import { CardFormComponent } from "./views/card-form/card-form.component"
     }
   `]
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
-  @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
+  // @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
 
   color: ThemePalette = 'primary';
   checked: boolean | null = null;
@@ -73,12 +74,12 @@ export class AppComponent implements AfterViewInit {
     console.log('add card')
   }
 
-  ngAfterViewInit() {
+  /*ngAfterViewInit() {
     console.log('form NG AFTER: ', this.element)
-  }
+  }*/
 
-  cleanup() {
+  /*cleanup() {
     console.log('form: ', this.element)
     this.element.form.reset()
-  }
+  }*/
 }

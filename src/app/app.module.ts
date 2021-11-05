@@ -12,7 +12,8 @@ import { SigninComponent } from './views/signin/signin.component';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
 import { CardListComponent } from './views/card-list/card-list.component';
-import { CardFormComponent } from './views/card-form/card-form.component'
+import { CardFormComponent } from './views/card-form/card-form.component';
+import { CardsComponent } from './views/cards/cards.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CardFormComponent } from './views/card-form/card-form.component'
     RegisterComponent,
     LoginComponent,
     CardListComponent,
-    CardFormComponent
+    CardFormComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
