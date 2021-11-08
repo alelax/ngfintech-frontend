@@ -19,7 +19,7 @@ import { Movement, MovementType } from "./models/Movement"
       <!--<app-cards></app-cards>-->
       <!--<app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>-->
 
-      <app-movements></app-movements>
+      <!--<app-movements></app-movements>-->
 
       <!--<app-card-form #formRef></app-card-form>-->
 
@@ -33,6 +33,7 @@ import { Movement, MovementType } from "./models/Movement"
         Reset
       </button>-->
 
+      <app-transfer></app-transfer>
       <router-outlet></router-outlet>
     </div>
 

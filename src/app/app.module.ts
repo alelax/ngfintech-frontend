@@ -17,7 +17,9 @@ import { CardsComponent } from './views/cards/cards.component';
 import { MovementComponent } from './views/movement/movement.component';
 import { MovementsComponent } from './views/movements/movements.component';
 import { TruncatePipe } from './views/truncate.pipe';
-import { TimestampTransformPipe } from './views/timestamp-transform.pipe'
+import { TimestampTransformPipe } from './views/timestamp-transform.pipe';
+import { TransferComponent } from './views/transfer/transfer.component';
+import { DialogComponent } from './views/dialog/dialog.component'
 
 @NgModule({
   declarations: [
@@ -32,10 +34,13 @@ import { TimestampTransformPipe } from './views/timestamp-transform.pipe'
     CardsComponent,
     MovementComponent,
     MovementsComponent,
+    DialogComponent,
 
     // PIPES
     TruncatePipe,
-    TimestampTransformPipe
+    TimestampTransformPipe,
+    TransferComponent,
+
   ],
   imports: [
     BrowserModule,
