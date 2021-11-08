@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerR
 import { NgForm } from "@angular/forms"
 import { ThemePalette } from "@angular/material/core"
 import { CardFormComponent } from "./views/card-form/card-form.component"
+import { Movement, MovementType } from "./models/Movement"
 
 @Component({
   selector: 'app-root',
@@ -17,6 +18,8 @@ import { CardFormComponent } from "./views/card-form/card-form.component"
 
       <!--<app-cards></app-cards>-->
       <!--<app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>-->
+
+      <app-movements></app-movements>
 
       <!--<app-card-form #formRef></app-card-form>-->
 
@@ -47,6 +50,8 @@ export class AppComponent {
   color: ThemePalette = 'primary';
   checked: boolean | null = null;
 
+  date = new Date();
+  type: MovementType = 'in'
   title = 'fintech-frontend';
 
   constructor() {
