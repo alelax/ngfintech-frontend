@@ -1,63 +1,90 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from "../../models/contact"
+import { MatDialogRef } from "@angular/material/dialog"
+import { contacts } from "../../../server/contacts"
 
 @Component({
   selector: 'app-contacts',
   template: `
-    <app-contact-list
-      [contacts]="contacts"
-      (confirmContact)="confirm($event)"
-      (editContact)="edit($event)"
-      (deleteContact)="delete($event)"
-    ></app-contact-list>
 
-    <button
+
+    <ng-container *ngIf="showContactList">
+      <app-contact-list
+        [contacts]="contacts"
+        (confirmContact)="confirm($event)"
+        (editContact)="edit($event)"
+        (deleteContact)="delete($event)"
+      ></app-contact-list>
+
+      <button
       mat-raised-button
       class="submit-btn"
       color="primary"
       type="submit"
+      (click)="showContactList = false; contactToEdit = null"
     >
       Nuovo contatto
     </button>
+    </ng-container>
+
+    <ng-container *ngIf="!showContactList">
+      <button
+        mat-raised-button
+        class="submit-btn"
+        color="primary"
+        type="button"
+        (click)="showContactList = true"
+      >
+        Indietro
+      </button>
+
+      <app-contact-form
+        [initialContact]="contactToEdit"
+        (saveContact)="save($event)"
+      ></app-contact-form>
+    </ng-container>
+
   `,
   styles: [
   ]
 })
 export class ContactsComponent {
 
-  contacts: Contact[] = [
-    {
-      _id: '2e773dcf-c47e-405b-907a-17fe65738995',
-      name: 'Denis',
-      surname: 'Shapovalov',
-      iban: 'IT94O0300203280454679511331'
-    },
-    {
-      _id: 'c390959c-4419-4325-ab33-9ad1099aa0ba',
-      name: 'Carlos',
-      surname: 'Alcaraz',
-      iban: 'IT53U0300203280438972383884'
-    },
-    {
-      _id: '60648987-f047-4e4f-a7e4-57f7dd043435',
-      name: 'Jannik',
-      surname: 'Sinner',
-      iban: 'IT92H0300203280391283244434'
-    }
-  ]
+  contacts: Contact[] = contacts
+  contactToEdit: Contact | null = null
+  showContactList: boolean = true
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<ContactsComponent>) { }
 
   confirm(contactID: string) {
-    console.log('confirm contact: ', contactID)
+    this.dialogRef.close(contactID)
   }
 
   edit(contactID: string) {
-    console.log('edit contact: ', contactID)
+    this.contactToEdit = this.contacts.find( c => c._id === contactID ) || null
+    this.showContactList = false
   }
 
   delete(contactID: string) {
     console.log('delete contact: ', contactID)
   }
 
+
+  save(contact: Contact) {
+    this.showContactList = true
+    this.contacts.find( c => c._id === contact._id)
+      ? this.editContact(contact)
+      : this.addContact(contact)
+  }
+
+  editContact(contact: Contact) {
+    const index = this.contacts.findIndex(c => c._id === contact._id)
+    this.contacts[index] = {
+      ...contact
+    };
+  }
+
+  private addContact(contact: Contact) {
+    this.contacts = [ ...this.contacts, contact ]
+  }
 }

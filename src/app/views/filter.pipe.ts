@@ -6,9 +6,16 @@ import { Contact } from "../models/contact"
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(contactsList: Contact[], searchText: string): Contact | [] {
-    console.log('searchText: ', searchText.toLowerCase())
-    return [];
+  transform(contactsList: Contact[] | null, searchText: string) {
+
+    if (!contactsList) return []
+    if (searchText === '') return contactsList;
+
+    return contactsList?.filter( (item) => {
+      const stringSearch = searchText.toLowerCase().replace(/\s+/g, ' ').trim()
+      return `${item.name} ${item.surname}`.toLowerCase().includes(stringSearch)
+
+    });
   }
 
 }

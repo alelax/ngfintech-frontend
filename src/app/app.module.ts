@@ -22,7 +22,8 @@ import { TransferComponent } from './views/transfer/transfer.component';
 import { DialogComponent } from './views/dialog/dialog.component';
 import { ContactsComponent } from './views/contacts/contacts.component';
 import { ContactListComponent } from './views/contact-list/contact-list.component';
-import { FilterPipe } from './views/filter.pipe'
+import { FilterPipe } from './views/filter.pipe';
+import { ContactFormComponent } from './views/contact-form/contact-form.component'
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FilterPipe } from './views/filter.pipe'
     ContactsComponent,
     ContactListComponent,
     FilterPipe,
+    ContactFormComponent,
 
   ],
   imports: [

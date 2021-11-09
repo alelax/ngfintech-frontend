@@ -79,7 +79,7 @@ const modules = [
   declarations: [],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'it-IT' },
-    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+    { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }
   ]
 })
 export class MaterialModule {}

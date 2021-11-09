@@ -10,12 +10,14 @@ import { Contact } from "../../models/contact"
         <mat-form-field appearance="outline">
           <mat-label>Cerca</mat-label>
           <input
-            [ngModel]
-            #contactRef="ngModel"
+            [(ngModel)]="searchText"
             name="contact"
             type="text"
             matInput
             placeholder="Cerca">
+          <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+            <mat-icon>close</mat-icon>
+          </button>
         </mat-form-field>
       </mat-card-header>
 
@@ -25,7 +27,7 @@ import { Contact } from "../../models/contact"
 
         <mat-list role="list">
 
-          <mat-list-item role="listitem" class="contact-list-item" *ngFor="let contact of contacts">
+          <mat-list-item role="listitem" class="contact-list-item" *ngFor="let contact of contacts | filter: searchText">
 
             <div class="contact-item-icon">
               <mat-icon>account_circle</mat-icon>
@@ -98,6 +100,8 @@ export class ContactListComponent implements OnInit {
   @Output() confirmContact = new EventEmitter<string>()
   @Output() editContact = new EventEmitter<string>()
   @Output() deleteContact = new EventEmitter<string>()
+
+  searchText: string = '';
 
   constructor() { }
 

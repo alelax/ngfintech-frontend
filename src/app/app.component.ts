@@ -34,10 +34,12 @@ import { Contact } from "./models/contact"
         Reset
       </button>-->
 
-      <!--<app-transfer></app-transfer>-->
+      <app-transfer></app-transfer>
 
 
-      <app-contacts></app-contacts>
+      <!--<app-contacts></app-contacts>-->
+
+
 
       <router-outlet></router-outlet>
 
@@ -52,16 +54,13 @@ import { Contact } from "./models/contact"
 })
 export class AppComponent {
 
-  // @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
-
-  color: ThemePalette = 'primary';
-  checked: boolean | null = null;
-
-  date = new Date();
-  type: MovementType = 'in'
   title = 'fintech-frontend';
 
+  // @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
+  color: ThemePalette = 'primary';
 
+  checked: boolean | null = null;
+  type: MovementType = 'in'
 
   constructor() {
     this.themeSetup()
