@@ -2,7 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerR
 import { NgForm } from "@angular/forms"
 import { ThemePalette } from "@angular/material/core"
 import { CardFormComponent } from "./views/card-form/card-form.component"
-import { Movement, MovementType } from "./models/Movement"
+import { Movement, MovementType } from "./models/movement"
+import { Contact } from "./models/contact"
 
 @Component({
   selector: 'app-root',
@@ -33,8 +34,13 @@ import { Movement, MovementType } from "./models/Movement"
         Reset
       </button>-->
 
-      <app-transfer></app-transfer>
+      <!--<app-transfer></app-transfer>-->
+
+
+      <app-contacts></app-contacts>
+
       <router-outlet></router-outlet>
+
     </div>
 
   `,
@@ -54,6 +60,8 @@ export class AppComponent {
   date = new Date();
   type: MovementType = 'in'
   title = 'fintech-frontend';
+
+
 
   constructor() {
     this.themeSetup()

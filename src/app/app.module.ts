@@ -19,7 +19,10 @@ import { MovementsComponent } from './views/movements/movements.component';
 import { TruncatePipe } from './views/truncate.pipe';
 import { TimestampTransformPipe } from './views/timestamp-transform.pipe';
 import { TransferComponent } from './views/transfer/transfer.component';
-import { DialogComponent } from './views/dialog/dialog.component'
+import { DialogComponent } from './views/dialog/dialog.component';
+import { ContactsComponent } from './views/contacts/contacts.component';
+import { ContactListComponent } from './views/contact-list/contact-list.component';
+import { FilterPipe } from './views/filter.pipe'
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import { DialogComponent } from './views/dialog/dialog.component'
     TruncatePipe,
     TimestampTransformPipe,
     TransferComponent,
+    ContactsComponent,
+    ContactListComponent,
+    FilterPipe,
 
   ],
   imports: [

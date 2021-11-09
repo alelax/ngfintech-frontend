@@ -1,4 +1,4 @@
-import { Movement } from "../app/models/Movement"
+import { Movement } from "../app/models/movement"
 
 export const cardMovements: Movement[] = [
   {

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { Movement, MovementType } from "../../models/Movement"
+import { Movement, MovementType } from "../../models/movement"
 
 @Component({
   selector: 'app-movement',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
-import { Card } from "../../models/Card"
+import { Card } from "../../models/card"
 import { MatSelectChange } from "@angular/material/select"
-import { Movement } from "../../models/Movement"
+import { Movement } from "../../models/movement"
 import { cardMovements } from "../../../server/movements"
 import { cards } from "../../../server/cards"
 

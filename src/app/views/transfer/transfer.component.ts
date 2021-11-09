@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms"
-import { Card } from "../../models/Card"
+import { Card } from "../../models/card"
 import { cards } from "../../../server/cards"
 import { MatDialog } from "@angular/material/dialog"
 import { DialogComponent } from "../dialog/dialog.component"
@@ -19,7 +19,9 @@ import { MatSnackBar } from "@angular/material/snack-bar"
         color="accent"
         type="submit"
         (click)="open()"
-      ></button>
+      >
+        Lista contatti
+      </button>
 
       <!-- NOME -->
       <div>

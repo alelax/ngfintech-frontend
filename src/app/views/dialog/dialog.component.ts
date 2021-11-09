@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core'
 import { MAT_DIALOG_DATA } from "@angular/material/dialog"
-import { GeneralDialog } from "../../models/GeneralDialog"
+import { GeneralDialog } from "../../models/generalDialog"
 
 @Component({
   selector: 'app-dialog',
