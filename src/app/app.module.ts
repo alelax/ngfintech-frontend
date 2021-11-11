@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./shared/material/material.module"
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 
 // COMPONENTS
 import { SigninComponent } from './views/signin/signin.component';
@@ -23,7 +23,10 @@ import { DialogComponent } from './views/dialog/dialog.component';
 import { ContactsComponent } from './views/contacts/contacts.component';
 import { ContactListComponent } from './views/contact-list/contact-list.component';
 import { FilterPipe } from './views/filter.pipe';
-import { ContactFormComponent } from './views/contact-form/contact-form.component'
+import { ContactFormComponent } from './views/contact-form/contact-form.component';
+import { LocationListComponent } from './views/location-list/location-list.component';
+import { LocationsComponent } from './views/locations/locations.component';
+import { LocationContactComponent } from './views/location-contact/location-contact.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
     MovementComponent,
     MovementsComponent,
     DialogComponent,
+    LocationListComponent,
+    LocationsComponent,
+
 
     // PIPES
     TruncatePipe,
@@ -48,6 +54,7 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
     ContactListComponent,
     FilterPipe,
     ContactFormComponent,
+    LocationContactComponent
 
   ],
   imports: [
@@ -55,7 +62,8 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

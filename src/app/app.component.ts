@@ -34,12 +34,13 @@ import { Contact } from "./models/contact"
         Reset
       </button>-->
 
-      <app-transfer></app-transfer>
+      <!--<app-transfer></app-transfer>-->
 
 
       <!--<app-contacts></app-contacts>-->
 
-
+      <!--<app-location-list></app-location-list>-->
+      <app-locations></app-locations>
 
       <router-outlet></router-outlet>
 
