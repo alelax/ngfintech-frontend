@@ -51,7 +51,9 @@ import { Location } from "../../models/location"
             <div class="slot-item-details">
               <div class="slot-item-detail-top">
                 <mat-icon>schedule</mat-icon>
-                <span class="slot-name">{{ slot }}</span>
+                <span class="slot-name">
+                  {{ slot }}
+                </span>
               </div>
             </div>
 
