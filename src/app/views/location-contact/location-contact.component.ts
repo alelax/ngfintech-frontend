@@ -14,6 +14,16 @@ import { Location } from "../../models/location"
   template: `
     <mat-card>
       <mat-card-content>
+
+        <div>
+          <app-location-map
+            *ngIf="location"
+            [locationName]="location.name"
+            [coords]="location.coords"
+            [zoom]="10"
+          ></app-location-map>
+        </div>
+
         <mat-form-field appearance="fill">
           <mat-label>Scegli una data</mat-label>
           <input
@@ -49,10 +59,16 @@ import { Location } from "../../models/location"
 
         </mat-selection-list>
       </mat-card-content>
-
     </mat-card>
   `,
   styles: [`
+    mat-card {
+      width: 500px;
+    }
+
+    mat-form-field {
+      margin: 25px 0;
+    }
     .slot-list-item {
       width: 100%;
       display: flex;

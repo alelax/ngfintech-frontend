@@ -27,6 +27,7 @@ import { ContactFormComponent } from './views/contact-form/contact-form.componen
 import { LocationListComponent } from './views/location-list/location-list.component';
 import { LocationsComponent } from './views/locations/locations.component';
 import { LocationContactComponent } from './views/location-contact/location-contact.component';
+import { LocationMapComponent } from './views/location-map/location-map.component';
 
 @NgModule({
   declarations: [
@@ -44,17 +45,18 @@ import { LocationContactComponent } from './views/location-contact/location-cont
     DialogComponent,
     LocationListComponent,
     LocationsComponent,
-
-
-    // PIPES
-    TruncatePipe,
-    TimestampTransformPipe,
     TransferComponent,
     ContactsComponent,
     ContactListComponent,
     FilterPipe,
     ContactFormComponent,
-    LocationContactComponent
+    LocationContactComponent,
+    LocationMapComponent,
+    LocationMapComponent,
+
+    // PIPES
+    TruncatePipe,
+    TimestampTransformPipe,
 
   ],
   imports: [
