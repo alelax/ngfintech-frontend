@@ -28,6 +28,7 @@ import { LocationListComponent } from './views/location-list/location-list.compo
 import { LocationsComponent } from './views/locations/locations.component';
 import { LocationContactComponent } from './views/location-contact/location-contact.component';
 import { LocationMapComponent } from './views/location-map/location-map.component';
+import { NavigationModule } from "./shared/navigation/navigation.module"
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { LocationMapComponent } from './views/location-map/location-map.componen
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

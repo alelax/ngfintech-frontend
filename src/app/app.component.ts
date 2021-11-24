@@ -40,8 +40,8 @@ import { Contact } from "./models/contact"
       <!--<app-contacts></app-contacts>-->
 
       <!--<app-location-list></app-location-list>-->
-      <app-locations></app-locations>
-
+      <!--<app-locations></app-locations>-->
+      <app-navigation></app-navigation>
       <router-outlet></router-outlet>
 
     </div>
