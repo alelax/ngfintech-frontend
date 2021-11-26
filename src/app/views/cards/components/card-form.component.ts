@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core'
 import { NgForm } from "@angular/forms"
-import { Card } from "../../models/card"
+import { Card } from "../../../models/card"
 
 interface CardType {
   value: 'visa' | 'mastercard',

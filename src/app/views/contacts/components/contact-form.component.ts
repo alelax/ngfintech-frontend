@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core'
 import { NgForm } from "@angular/forms"
-import { Contact } from "../../models/contact"
+import { Contact } from "../../../models/contact"
 
 @Component({
   selector: 'app-contact-form',

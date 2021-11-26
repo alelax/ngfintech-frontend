@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'
 import { Card } from "../../models/card"
-import { CardFormComponent } from "../card-form/card-form.component"
+import { CardFormComponent } from "./components/card-form.component"
 import { MatDrawer } from "@angular/material/sidenav"
 import { MatSnackBar } from "@angular/material/snack-bar"
 

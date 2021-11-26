@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core'
 import { Contact } from "../../models/contact"
-import { MatDialogRef } from "@angular/material/dialog"
+
 import { contacts } from "../../../server/contacts"
+import { MatDialogRef } from "@angular/material/dialog"
 
 @Component({
   selector: 'app-contacts',
   template: `
-
 
     <ng-container *ngIf="showContactList">
       <app-contact-list
@@ -54,7 +54,7 @@ export class ContactsComponent {
   contactToEdit: Contact | null = null
   showContactList: boolean = true
 
-  constructor(public dialogRef: MatDialogRef<ContactsComponent>) { }
+  constructor(@Optional() public dialogRef: MatDialogRef<ContactsComponent>) { }
 
   confirm(contactID: string) {
     this.dialogRef.close(contactID)

@@ -11,24 +11,19 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { SigninComponent } from './views/signin/signin.component';
 import { RegisterComponent } from './views/register/register.component';
 import { LoginComponent } from './views/login/login.component';
-import { CardListComponent } from './views/card-list/card-list.component';
-import { CardFormComponent } from './views/card-form/card-form.component';
-import { CardsComponent } from './views/cards/cards.component';
 import { MovementComponent } from './views/movement/movement.component';
 import { MovementsComponent } from './views/movements/movements.component';
 import { TruncatePipe } from './views/truncate.pipe';
 import { TimestampTransformPipe } from './views/timestamp-transform.pipe';
 import { TransferComponent } from './views/transfer/transfer.component';
 import { DialogComponent } from './views/dialog/dialog.component';
-import { ContactsComponent } from './views/contacts/contacts.component';
-import { ContactListComponent } from './views/contact-list/contact-list.component';
-import { FilterPipe } from './views/filter.pipe';
-import { ContactFormComponent } from './views/contact-form/contact-form.component';
 import { LocationListComponent } from './views/location-list/location-list.component';
 import { LocationsComponent } from './views/locations/locations.component';
 import { LocationContactComponent } from './views/location-contact/location-contact.component';
 import { LocationMapComponent } from './views/location-map/location-map.component';
 import { NavigationModule } from "./shared/navigation/navigation.module"
+import { CardsModule } from "./views/cards/cards.module"
+import { ContactsModule } from "./views/contacts/contacts.module"
 
 @NgModule({
   declarations: [
@@ -38,21 +33,18 @@ import { NavigationModule } from "./shared/navigation/navigation.module"
     SigninComponent,
     RegisterComponent,
     LoginComponent,
-    CardListComponent,
-    CardFormComponent,
-    CardsComponent,
+
     MovementComponent,
     MovementsComponent,
+
     DialogComponent,
+
     LocationListComponent,
     LocationsComponent,
+
     TransferComponent,
-    ContactsComponent,
-    ContactListComponent,
-    FilterPipe,
-    ContactFormComponent,
+
     LocationContactComponent,
-    LocationMapComponent,
     LocationMapComponent,
 
     // PIPES
@@ -67,7 +59,11 @@ import { NavigationModule } from "./shared/navigation/navigation.module"
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    NavigationModule
+
+    NavigationModule,
+    CardsModule,
+    ContactsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

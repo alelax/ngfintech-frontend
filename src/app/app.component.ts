@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
 import { NgForm } from "@angular/forms"
 import { ThemePalette } from "@angular/material/core"
-import { CardFormComponent } from "./views/card-form/card-form.component"
+import { CardFormComponent } from "./views/cards/components/card-form.component"
 import { Movement, MovementType } from "./models/movement"
 import { Contact } from "./models/contact"
 
@@ -37,11 +37,11 @@ import { Contact } from "./models/contact"
       <!--<app-transfer></app-transfer>-->
 
 
-      <!--<app-contacts></app-contacts>-->
+      <app-contacts></app-contacts>
 
       <!--<app-location-list></app-location-list>-->
       <!--<app-locations></app-locations>-->
-      <app-navigation></app-navigation>
+      <!--<app-navigation></app-navigation>-->
       <router-outlet></router-outlet>
 
     </div>
