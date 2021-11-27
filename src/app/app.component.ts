@@ -1,8 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core'
-import { NgForm } from "@angular/forms"
+import { Component } from '@angular/core'
 import { ThemePalette } from "@angular/material/core"
 import { MovementType } from "./models/movement"
-
 
 @Component({
   selector: 'app-root',
@@ -40,8 +38,10 @@ import { MovementType } from "./models/movement"
 
       <!--<app-location-list></app-location-list>-->
       <!--<app-locations></app-locations>-->
-      <!--<app-navigation></app-navigation>-->
-      <router-outlet></router-outlet>
+      <app-navigation>
+        <router-outlet></router-outlet>
+      </app-navigation>
+
 
     </div>
 

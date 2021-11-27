@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
       </mat-toolbar>
 
       <mat-sidenav-container class="example-sidenav-container">
-        <mat-sidenav #sidenav>
+        <mat-sidenav #sidenav mode="side">
           <mat-nav-list>
             <a mat-list-item [routerLink]="nav.link" *ngFor="let nav of fillerNav">
               <mat-icon mat-list-icon>{{ nav.icon }}</mat-icon>
@@ -27,7 +27,10 @@ import { Component, OnInit } from '@angular/core';
         </mat-sidenav>
 
         <mat-sidenav-content>
-          <p *ngFor="let content of fillerContent">{{content}}</p>
+          <section style="width: 100%; height: 100vh;">
+            <ng-content></ng-content>
+          </section>
+
         </mat-sidenav-content>
       </mat-sidenav-container>
     </div>
