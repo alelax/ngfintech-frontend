@@ -5,7 +5,7 @@ import { MatSnackBar } from "@angular/material/snack-bar"
 import { DayWithSlot } from "../../models/dayWithSlot"
 
 @Component({
-  selector: 'app-locations',
+  selector: 'app-appointments',
   template: `
     <mat-drawer-container>
 
@@ -38,7 +38,7 @@ import { DayWithSlot } from "../../models/dayWithSlot"
     }
   `]
 })
-export class LocationsComponent implements OnInit {
+export class AppointmentsComponent implements OnInit {
 
   @ViewChild('drawer') drawer!: MatDrawer;
   locations: Location[] = [

@@ -38,9 +38,7 @@ import { MovementType } from "./models/movement"
 
       <!--<app-location-list></app-location-list>-->
       <!--<app-locations></app-locations>-->
-      <app-navigation>
-        <router-outlet></router-outlet>
-      </app-navigation>
+      <router-outlet></router-outlet>
 
 
     </div>

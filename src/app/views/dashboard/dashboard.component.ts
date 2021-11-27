@@ -3,18 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard',
   template: `
-    <p>
-      dashboard works!
-    </p>
+    <app-navigation>
+        <router-outlet></router-outlet>
+    </app-navigation>
   `,
   styles: [
   ]
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
