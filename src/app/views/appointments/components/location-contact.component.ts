@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { FormControl, NgForm } from "@angular/forms"
-import { DayWithSlots } from "../../models/dayWithSlots"
+import { DayWithSlots } from "../../../models/dayWithSlots"
 import * as moment from 'moment';
 import { Moment } from "moment"
-import { Slots } from "../../models/slots"
-import { DayWithSlot } from "../../models/dayWithSlot"
+import { Slots } from "../../../models/slots"
+import { DayWithSlot } from "../../../models/dayWithSlot"
 import { MatDialog } from "@angular/material/dialog"
-import { DialogComponent } from "../dialog/dialog.component"
-import { Location } from "../../models/location"
+import { DialogComponent } from "../../dialog/dialog.component"
+import { Location } from "../../../models/location"
 
 @Component({
   selector: 'app-location-contact',

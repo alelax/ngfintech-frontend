@@ -8,48 +8,27 @@ import { MaterialModule } from "./shared/material/material.module"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 
 // COMPONENTS
-import { SigninComponent } from './views/signin/signin.component';
-import { RegisterComponent } from './views/register/register.component';
-import { LoginComponent } from './views/login/login.component';
-import { MovementComponent } from './views/movement/movement.component';
-import { MovementsComponent } from './views/movements/movements.component';
-import { TruncatePipe } from './views/truncate.pipe';
-import { TimestampTransformPipe } from './views/timestamp-transform.pipe';
 import { TransferComponent } from './views/transfer/transfer.component';
 import { DialogComponent } from './views/dialog/dialog.component';
-import { LocationListComponent } from './views/location-list/location-list.component';
-import { LocationsComponent } from './views/locations/locations.component';
-import { LocationContactComponent } from './views/location-contact/location-contact.component';
-import { LocationMapComponent } from './views/location-map/location-map.component';
 import { NavigationModule } from "./shared/navigation/navigation.module"
 import { CardsModule } from "./views/cards/cards.module"
 import { ContactsModule } from "./views/contacts/contacts.module"
+import { AppointmentsModule } from "./views/appointments/appointments.module"
+import { MovementsModule } from "./views/movements/movements.module"
+import { LoginModule } from "./views/login/login.module"
 
 @NgModule({
   declarations: [
     AppComponent,
 
     // BASE COMPONENTS
-    SigninComponent,
-    RegisterComponent,
-    LoginComponent,
-
-    MovementComponent,
-    MovementsComponent,
 
     DialogComponent,
 
-    LocationListComponent,
-    LocationsComponent,
 
     TransferComponent,
 
-    LocationContactComponent,
-    LocationMapComponent,
-
     // PIPES
-    TruncatePipe,
-    TimestampTransformPipe,
 
   ],
   imports: [
@@ -62,7 +41,10 @@ import { ContactsModule } from "./views/contacts/contacts.module"
 
     NavigationModule,
     CardsModule,
-    ContactsModule
+    ContactsModule,
+    AppointmentsModule,
+    MovementsModule,
+    LoginModule
 
   ],
   providers: [],
