@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './navigation.component';
 import { RouterModule } from "@angular/router"
 import { MaterialModule } from "../material/material.module"
+import { FormsModule } from "@angular/forms"
 
 
 
@@ -13,7 +14,8 @@ import { MaterialModule } from "../material/material.module"
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   exports: [ NavigationComponent ]
 })

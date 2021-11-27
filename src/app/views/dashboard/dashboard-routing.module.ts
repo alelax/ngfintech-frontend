@@ -8,7 +8,7 @@ const routes: Routes = [
     path: '',
     component: DashboardComponent,
     children: [
-      { path: '', component: HomeComponent },
+      { path: 'home', component: HomeComponent },
       { path: 'cards', loadChildren: () => import('../cards/cards.module').then(m => m.CardsModule) },
       { path: 'movements', loadChildren: () => import('../movements/movements.module').then(m => m.MovementsModule) },
       { path: 'transfer', loadChildren: () => import('../transfer/transfer.module').then(m => m.TransferModule) },
@@ -17,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'home'
   }
 
 ];

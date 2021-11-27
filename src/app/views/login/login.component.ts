@@ -5,8 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <mat-card>
       <mat-card-content>
-        <app-signin *ngIf="showLogin"></app-signin>
-        <app-register *ngIf="!showLogin"></app-register>
+        <router-outlet></router-outlet>
         <a class="form-change-link" (click)="showLogin = !showLogin">{{ showLogin ? 'Crea un nuovo account' : 'Hai già un account? Accedi' }}</a>
       </mat-card-content>
     </mat-card>

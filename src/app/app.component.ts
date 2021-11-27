@@ -5,14 +5,14 @@ import { MovementType } from "./models/movement"
 @Component({
   selector: 'app-root',
   template: `
-    <div [ngClass]="checked ? 'darkMode' : ''">
+    <router-outlet></router-outlet>
 
-      <mat-slide-toggle
+      <!--<mat-slide-toggle
         [color]="color"
         [(ngModel)]="checked"
         (toggleChange)="toggleTheme()">
         <mat-icon>{{ checked ? 'dark_mode' : 'wb_sunny' }}</mat-icon>
-      </mat-slide-toggle>
+      </mat-slide-toggle>-->
 
       <!--<app-cards></app-cards>-->
       <!--<app-card-list (showMovements)="showMovements($event)" (removeCard)="removeCard($event)" (addCard)="addCard()"></app-card-list>-->
@@ -38,10 +38,8 @@ import { MovementType } from "./models/movement"
 
       <!--<app-location-list></app-location-list>-->
       <!--<app-locations></app-locations>-->
-      <router-outlet></router-outlet>
 
 
-    </div>
 
   `,
   styles: [`
@@ -53,9 +51,9 @@ import { MovementType } from "./models/movement"
 export class AppComponent {
 
   title = 'fintech-frontend';
-
-  // @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
   color: ThemePalette = 'primary';
+  // @ViewChild('formRef', { read: CardFormComponent }) element!: CardFormComponent;
+
 
   checked: boolean | null = null;
   type: MovementType = 'in'
