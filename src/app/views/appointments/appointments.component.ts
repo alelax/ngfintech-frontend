@@ -3,6 +3,7 @@ import { Location } from "../../models/location"
 import { MatDrawer } from "@angular/material/sidenav"
 import { MatSnackBar } from "@angular/material/snack-bar"
 import { DayWithSlot } from "../../models/dayWithSlot"
+import { AppointmentsService } from "../../api/apointments.service"
 
 @Component({
   selector: 'app-appointments',
@@ -25,7 +26,6 @@ import { DayWithSlot } from "../../models/dayWithSlot"
       </mat-drawer-content>
 
     </mat-drawer-container>
-
 
   `,
   styles: [`
@@ -61,7 +61,12 @@ export class AppointmentsComponent implements OnInit {
   ]
   locationSelected: Location | null = null
 
-  constructor(private _snackBar: MatSnackBar) {}
+  constructor(
+    private _snackBar: MatSnackBar,
+    public appointmentService: AppointmentsService
+  ) {
+    this.appointmentService.getLocations()
+  }
 
   ngOnInit(): void {
   }
@@ -73,7 +78,6 @@ export class AppointmentsComponent implements OnInit {
   cancel() { this.closeDrawer() }
 
   confirmMeeting(meetingDate: DayWithSlot | null) {
-    console.log('APPUNTAMENTO CONFERMATO: ', meetingDate)
     this.closeDrawer()
   }
 

@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { LocationListComponent } from "./components/location-list.component"
 import { LocationContactComponent } from "./components/location-contact.component"
 import { LocationMapComponent } from "./components/location-map.component"
-import { AppointmentsComponent } from "./apointments.component"
+import { AppointmentsComponent } from "./appointments.component"
 
 
 @NgModule({

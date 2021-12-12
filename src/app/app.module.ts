@@ -16,6 +16,7 @@ import { TransferModule } from "./views/transfer/transfer.module"
 
 // SHARED MODULE
 import { MaterialModule } from "./shared/material/material.module"
+import { HttpClientModule } from "@angular/common/http"
 
 const featuresModule = [ CardsModule,  ContactsModule,  AppointmentsModule,  MovementsModule,  LoginModule,  TransferModule]
 const sharedModule = [ MaterialModule ]
@@ -23,15 +24,7 @@ const sharedModule = [ MaterialModule ]
 @NgModule({
   declarations: [
     AppComponent,
-
-    // BASE COMPONENTS
-
-    DialogComponent,
-
-
-
-    // PIPES
-
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +32,7 @@ const sharedModule = [ MaterialModule ]
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     ...featuresModule,
     ...sharedModule
   ],
